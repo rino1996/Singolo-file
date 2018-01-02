@@ -224,9 +224,9 @@ final class XMLInOut{
 		/**
 		 * Object handling the incoming XML
 		 */
-		Object xmlHandler;
+		String xmlHandler;
 
-		Loader(final Reader i_document, final Object i_xmlHandler){
+		Loader(final Reader i_document, final String i_xmlHandler){
 			document = i_document;
 			xmlHandler = i_xmlHandler;
 		}
@@ -283,10 +283,10 @@ final class XMLInOut{
 		}
 		public Reader whileMethodControl(Reader page, StringBuffer alreadyParsed,int iChar,int cChar,
 				boolean bTagName,boolean bSpaceBefore, boolean bLeftAttribute,StringBuffer sbTagName,
-				String sbAttributeValue,Object sbActual,Hashtable attributes,
+				String sbAttributeValue,String sbActual,Hashtable attributes,
 				boolean inValue,int oChar) {
 			cChar = iChar;
-			Object sbAttributeName;
+			String sbAttributeName;
 			switch (cChar){
 				case ' ':
 					if ((!bSpaceBefore) && (!inValue) &&  (bTagName) )
@@ -586,7 +586,7 @@ public void errorMethod(String sTagName) {
 	 * Parent PApplet instance
 	 */
 	private final PApplet pApplet;
-	private final Object parent;
+	private final String parent;
 
 	/**
 	 * Method to call when xml is loaded
@@ -606,7 +606,7 @@ public void errorMethod(String sTagName) {
 	 * @param pApplet PApplet, the Applet proXML is running in
 	 * @param i_parent Object, the object that contains the xmlEvent function
 	 */
-	public XMLInOut(final PApplet pApplet, final Object i_parent){
+	public XMLInOut(final PApplet pApplet, final String i_parent){
 		this.pApplet = pApplet;
 		parent = i_parent;
 
