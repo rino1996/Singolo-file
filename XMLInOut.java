@@ -1,4 +1,4 @@
- package eeml;
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -99,8 +99,9 @@ final class XMLInOut{
 		}
 	}
 	static String getSource(){
-		char iChar;//mio int 
+		int iChar;//mio int 
 		StringBuffer result = new StringBuffer();
+		BufferedReader keep;
 		iChar = keep.read();
 		try{
 			while (iChar != -1){
@@ -123,11 +124,12 @@ final class XMLInOut{
 		boolean rootNode = true;
 		
 		int aux = 0;
-		char iChar; //keeps the int value of the current char
-		char cChar; //keeps the char value of the current char
+		int iChar; //keeps the int value of the current char
+		int cChar; //keeps the char value of the current char
 
 		String sbText = " "; //StringBuffer to parse words in
 		boolean bText = false; //has a word been parsed
+		BufferedReader document;
 		iChar = document.read();
 		try{
 			while (iChar != -1){ //as long there is something to read
@@ -153,7 +155,7 @@ final class XMLInOut{
 						iChar = document.read();
 						if (iChar != -1){ //check the next sign...
 							cChar = iChar; //get its char value..
-							 aux = cCharControl(cChar, iChar);
+							 aux = cCharControl(cChar, iChar, document);
 						}
 						if (aux ==0)
 						document = handleStartTag(document, new StringBuffer().append(cChar));
@@ -179,7 +181,7 @@ final class XMLInOut{
 	}
 	
 	
-	public int cCharControl(char cChar, char iChar)	{
+	public int cCharControl(int cChar, int iChar, BufferedReader document)	{
 		
 		if (cChar == '/'){ //in this case we have an end tag
 			document = handleEndTag(result, document); // and handle it
@@ -282,7 +284,7 @@ final class XMLInOut{
 		public Reader whileMethodControl(Reader page, StringBuffer alreadyParsed,int iChar,int cChar,
 				boolean bTagName,boolean bSpaceBefore, boolean bLeftAttribute,StringBuffer sbTagName,
 				String sbAttributeValue,Object sbActual,Hashtable attributes,
-				boolean inValue,char oChar) {
+				boolean inValue,int oChar) {
 			cChar = iChar;
 			Object sbAttributeName;
 			switch (cChar){
@@ -298,7 +300,7 @@ final class XMLInOut{
 								sbAttributeValue = " ";
 								bLeftAttribute = false;
 								sbActual = sbAttributeName;
-								sbActual).append(cChar);
+								sbActual.append(cChar);
 						
 						}
 						bSpaceBefore = true;
