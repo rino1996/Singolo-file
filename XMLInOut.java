@@ -100,17 +100,17 @@ final class XMLInOut{
 	}
 	static String getSource(){
 		int iChar;//mio int 
-		StringBuffer result = new StringBuffer();
+		StringBuffer result1 = new StringBuffer();
 		BufferedReader keep;
 		iChar = keep.read();
 		try{
 			while (iChar != -1){
-				result.append(iChar);//mio
+				result1.append(iChar);//mio
 			}
 		}catch (Exception e){
 			return ("fails");
 		}
-		return result.toString();
+		return result1.toString();
 	}
 	/**
 	 * Parses a given String and gives back box with the parsed Element and the
@@ -341,10 +341,10 @@ final class XMLInOut{
 							result = new XMLElement(sTagName, attributes);
 							actualElement = result;
 						}else{
-							XMLElement keep = new XMLElement(sTagName, attributes);
-							actualElement.addChild(keep);
+							XMLElement keep1 = new XMLElement(sTagName, attributes);
+							actualElement.addChild(keep1);
 							if (oChar != '/')
-								actualElement = keep;
+								actualElement = keep1;
 						}
 					}
 					break;
@@ -507,18 +507,18 @@ public void errorMethod(String sTagName) {
 		public Reader handleCDATASection(Reader toParse) throws Exception{
 			int iChar;
 			char cChar;
-			StringBuffer result = new StringBuffer();
+			String result = " ";
 			int counter = 0;
 			boolean checkedCDATA = false;
-			XMLElement keep = new XMLElement(result.toString());
+			XMLElement keep2 = new XMLElement(result.toString());
 			iChar = toParse.read();
 			while (iChar != -1){
 				cChar = (char) iChar;
 				if (cChar == ']'){
 					
-					keep.cdata = true;
-					keep.pcdata = true;
-					actualElement.addChild(keep);
+					keep2.cdata = true;
+					keep2.pcdata = true;
+					actualElement.addChild(keep2);
 					break;
 				}
 				result.append(cChar);
