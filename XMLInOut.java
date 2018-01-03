@@ -843,8 +843,10 @@ public void errorMethod(String sTagName) {
 					try{
 						//mio
 						stream = new FileInputStream(new File("data", filename));
-						stream = loadFile(stream,filename,aux );
-						finally {
+						
+					}finally {
+							stream = loadFile(stream,filename,aux );
+						}
 					           if (stream != null) {
 					             try {
 					               stream.close (); // OK
@@ -852,6 +854,8 @@ public void errorMethod(String sTagName) {
 					             }catch (Exception e9) {
 					            		System.out.println("Error");
 					             }
+					           }
+						
 						
 				}catch (IOException e2){
 					System.out.println("Error");
@@ -862,7 +866,7 @@ public void errorMethod(String sTagName) {
 						
 						stream = new FileInputStream(filename);
 						stream = loadFile(stream,filename,aux );
-						finally {
+					}finally {
 					           if (stream != null) {
 					             try {
 					               stream.close (); // OK
@@ -870,7 +874,8 @@ public void errorMethod(String sTagName) {
 					             }catch (Exception e10) {
 					            		System.out.println("Error");
 					             }
-						
+					           }
+					}
 					
 				}catch (IOException e1){
 					System.out.println("Error");
@@ -882,13 +887,9 @@ public void errorMethod(String sTagName) {
 
 			if (stream == null)
 				throw new IOException("openStream() could not open " + filename);
-				}catch (Exception e){
-			System.out.println("Error");
-		}
+			
 		return null; // #$(*@ compiler
-	} catch (Exception pippo){
-		System.out.println("Error");
-	} // online, whups
+	
 	}
 	
 
