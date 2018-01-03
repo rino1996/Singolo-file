@@ -353,7 +353,7 @@ final class Null {
     }
     }
 
-static class Tagl implements Cloneable{
+static class Tagl {
 	
 
     /**
