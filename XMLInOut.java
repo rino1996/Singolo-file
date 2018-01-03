@@ -846,7 +846,7 @@ public void errorMethod(String sTagName) {
 						
 					}finally {
 							stream = loadFile(stream,filename,aux );
-						}
+						
 					           if (stream != null) {
 					             try {
 					               stream.close (); // OK
@@ -856,7 +856,7 @@ public void errorMethod(String sTagName) {
 					             }
 					           }
 						
-						
+					}
 				}catch (IOException e2){
 					System.out.println("Error");
 				}
