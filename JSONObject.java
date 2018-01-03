@@ -410,7 +410,7 @@ static class Tagl implements Cloneable{
      * @return     NULL.
      */
     public String clone() {
-        return this.toString();
+        return " ";
     }
     /**
      * A Null object is equal to the null value and to itself.
