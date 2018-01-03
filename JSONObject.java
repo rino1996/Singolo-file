@@ -409,7 +409,7 @@ static class Tagl implements Cloneable{
      * so the clone method returns itself.
      * @return     NULL.
      */
-    public String clone() {
+    public String pippo() {
         return " ";
     }
     /**
